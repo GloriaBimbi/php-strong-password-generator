@@ -1,27 +1,7 @@
 <?php
 
-require  __DIR__ . "./functions.php";
-
-//array di dati che mi servono per la creazione delle password
-// $min_letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
-// $mai_letters = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
-// $simbols = [ '!', '#', '$', '%', '&', '(', ')', '*', '+', ',', '-', '.', '/', ':', ';', '<', '=', '>', '?', '@', '[', ']', '^', '_', '`', '{', '|', '}', '~' ];
-// $numbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
-$password_simbols = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', '!', '#', '$', '%', '&', '(', ')', '*', '+', ',', '-', '.', '/', ':', ';', '<', '=', '>', '?', '@', '[', ']', '^', '_', '`', '{', '|', '}', '~', 0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
-
-$password = '';
-
-
-//creo una variabile che passa true se l'array GET non è vuoto; altrimenti passa false
-$length_set = isset($_GET['password_length']) ? true : false;
-
-//controllo che il form sia stato inviato
-if($length_set){
-    $password_length = (int) $_GET['password_length'];
-    $generated_password = create_password($password_length, $password_simbols, $password);
-} else {
-    $generated_password = '...';
-};
+require  __DIR__ . "./partials/functions.php";
+require  __DIR__ . "./partials/init.php";
 
 ?>
 
@@ -42,10 +22,6 @@ if($length_set){
             <input type="number" id="password_length" name="password_length" min="8" max="20" class="col-9  me-3" placeholder="Scegli tra 8 e 20 caratteri" autofocus>
             <button class="btn btn-success col-2">Genera</button>
         </form>
-        <div class="result mt-5">
-            <label for="password" class="me-3">La tua password di <?= $password_length ?> caratteri è:</label>
-            <input type="text" id="password" value="<?= $generated_password ?>" />
-        </div>
     </div>
 </body>
 </html>

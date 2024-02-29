@@ -1,7 +1,7 @@
 <?php
 
-require  __DIR__ . "./partials/functions.php";
-require  __DIR__ . "./partials/init.php";
+require_once  __DIR__ . "./partials/functions.php";
+require_once  __DIR__ . "./partials/init.php";
 
 ?>
 
@@ -17,11 +17,16 @@ require  __DIR__ . "./partials/init.php";
 <body>
     <div class="container mt-5">
         <h1 class="mb-5">Password Generator</h1>
-        <form method="get" class="row">
-            <label for="password_length" class="col-12 mb-2">Scegli il numero di caratteri della tua password:</label>
-            <input type="number" id="password_length" name="password_length" min="8" max="20" class="col-9  me-3" placeholder="Scegli tra 8 e 20 caratteri" autofocus>
-            <button class="btn btn-success col-2">Genera</button>
-        </form>
+        <div class="card">
+            <div class="card-body">
+                <form method="get" class="row">
+                    <label for="password_length" class="col-12 mb-2 form-label">Scegli il numero di caratteri della tua password:</label>
+                    <input type="number" id="password_length" name="password_length" min="8" max="20" class="col-9  me-3" placeholder="Scegli tra 8 e 20 caratteri" autofocus>
+                    <button class="btn btn-success col-2">Genera</button>
+                </form>
+            </div>
+        </div>
+        
     </div>
 </body>
 </html>
